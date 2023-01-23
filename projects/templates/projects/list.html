@@ -7,6 +7,15 @@
     <title>Projects</title>
 </head>
 <body>
+    <header>
+        <nav>
+            {% if user.is_authenticated %}
+            Hello, {{user.username}}
+            {%else%}
+            <a href="{% url 'login' %}">Login</a>
+            {%endif%}
+        </nav>
+    </header>
     <main>
         <div>
             <h1>My Projects</h1>
