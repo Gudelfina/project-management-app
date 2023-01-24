@@ -10,7 +10,7 @@
     <main>
         <div>
             <h1>{{project_object.name}}</h1>
-            <p>{{project_object.project.description}}</p>
+            <p>{{project_object.description}}</p>
             <h2>Tasks</h2>
                 {% if not project_object.tasks.all%}
                 <p>This project has no tasks</p>
