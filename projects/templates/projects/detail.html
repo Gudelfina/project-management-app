@@ -1,29 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                {% if user.is_authenticated %}
-                Hello, {{user.username}}
-                <li><a href="{% url 'show_my_tasks' %}">My Tasks</a></li>
-                <li><a href="{% url 'list_projects' %}">My Projects</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-                {%else%}
-                <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                <li><a href="{% url 'login' %}">Login</a></li>
-                {%endif%}
-            </ul>
-        </nav>
-    </header>
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block main %}
     <main>
-        <div>
+        <div class="project-detail">
             <h1>{{project_object.name}}</h1>
             <p>{{project_object.description}}</p>
             <h2>Tasks</h2>
@@ -55,5 +35,4 @@
                 {%endif%}
         </div>
     </main>
-</body>
-</html>
+    {% endblock main %}

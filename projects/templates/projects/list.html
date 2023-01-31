@@ -1,32 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                {% if user.is_authenticated %}
-                Hello, {{user.username}}
-                <li><a href="{% url 'show_my_tasks' %}">My Tasks</a></li>
-                <li><a href="{% url 'list_projects' %}">My Projects</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-                {%else%}
-                <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                <li><a href="{% url 'login' %}">Login</a></li>
-                {%endif%}
-            </ul>
-        </nav>
-    </header>
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block main %}
     <main>
-        <div>
-            <h1>My Projects</h1>
+        <div class="project-list">
+            <h1 class="type-effect">My Projects</h1>
             <div>
-                <p><a href="{%url 'create_project' %}">Create a new project</a></p>
+                <p><a class="hover-underline-animation" href="{%url 'create_project' %}">Create a new project</a></p>
             </div>
             {% if not projects%}
             <p>You are not assigned to any projects</p>
@@ -40,7 +20,7 @@
                 <tbody>
                     {% for project in projects %}
                     <tr>
-                        <td><a href="{% url 'show_project' project.id %}">{{project.name}}</a></td>
+                        <td><a class="hover-underline-animation" href="{% url 'show_project' project.id %}">{{project.name}}</a></td>
                         <td>{{project.tasks.all|length}}</td>
                     </tr>
                     {%endfor%}
@@ -49,5 +29,4 @@
             {%endif%}
         </div>
     </main>
-</body>
-</html>
+    {% endblock main %}
