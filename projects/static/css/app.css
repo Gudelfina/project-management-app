@@ -67,6 +67,10 @@ a {
 
 }
 
+.outline {
+    border-color: solid rgb(96, 255, 173);
+}
+
 /* Set the style of the navigation list */
 header nav ul {
   background-color: #112240;
