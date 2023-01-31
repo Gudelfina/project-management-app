@@ -19,9 +19,9 @@
             <tbody>
                 {% for task in tasks %}
                 <tr>
-                    <td>{{task.name}}</td>
-                    <td>{{task.start_date}}</td>
-                    <td>{{task.due_date}}</td>
+                    <td><a class="hover-underline-animation" href="{% url 'edit_task' task.id %}">{{task.name}}</a></td>
+                    <td>{{task.start_date|date:"F j Y"}}</td>
+                    <td>{{task.due_date|date:"F j Y"}}</td>
                     <td>{{task.is_completed}}</td>
                 </tr>
                 {%endfor%}

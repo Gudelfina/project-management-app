@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block main %}
+    <main>
+        <div class="project-form">
+            <h1>Edit Task</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+            <button>Save</button>
+            </form>
+        </div>
+    </main>
+    {% endblock main %}
