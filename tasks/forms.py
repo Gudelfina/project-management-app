@@ -12,4 +12,5 @@ class TaskForm(ModelForm):
             "project",
             "assignee",
             "is_completed",
+            "notes",
         ]
